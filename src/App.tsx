@@ -46,7 +46,7 @@ export default function App() {
     'crazy_saved_papers_v1',
     []
   );
-  const [replayingIntro, setReplayingIntro] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const [activeRoute, setActiveRoute] = useState<PageRoute>('home');
   const [filters, setFilters] = useState<PaperFilterState>(DEFAULT_FILTERS);
   const [globalSearch, setGlobalSearch] = useState('');
@@ -58,8 +58,6 @@ export default function App() {
 
   const reducedMotion = useReducedMotion(prefs.reducedMotionOverride);
   const { toasts, pushToast, dismissToast } = useToast();
-
-  const showIntro = !prefs.hasCompletedIntro || replayingIntro;
 
   const updatePrefs = useCallback(
     (patch: Partial<UserPreferences>) => {
@@ -117,9 +115,8 @@ export default function App() {
   );
 
   const handleFinishIntro = useCallback(() => {
-    updatePrefs({ hasCompletedIntro: true });
-    setReplayingIntro(false);
-  }, [updatePrefs]);
+    setShowIntro(false);
+  }, []);
 
   const handleNotificationClick = useCallback(
     (notif: DemoNotification) => {
@@ -291,7 +288,7 @@ export default function App() {
                       );
                     }
                   }}
-                  onReplayIntro={() => setReplayingIntro(true)}
+                  onReplayIntro={() => setShowIntro(true)}
                   onClearBookmarks={() => {
                     setBookmarkedIds([]);
                     pushToast('Cleared all saved bookmarks.', 'info');
