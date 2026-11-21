@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-bg-deep: #05070D;
+  --color-bg-secondary: #090F1C;
+  --color-bg-card: #0D1525;
+  --color-electric-primary: #2563EB;
+  --color-electric-blue: #3B82F6;
+  --color-neon-blue: #60A5FA;
+}
+
+@layer base {
+  html {
+    background-color: #05070D;
+    color: #F8FAFC;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #05070D;
+    color: #F8FAFC;
+    overflow-x: hidden;
+    letter-spacing: 0.008em;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05070D;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.45);
+}
+
+/* Subtle glass card surface */
+.glass-surface {
+  background: rgba(13, 21, 37, 0.78);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+/* Solid translucent surface for overlays above WebGL canvases (no backdrop-filter) */
+.webgl-hud-surface {
+  background: rgba(9, 15, 28, 0.92);
+  border: 1px solid rgba(59, 130, 246, 0.24);
+}
+
+.electric-ring {
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.35), 0 0 28px -8px rgba(37, 99, 235, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "CRAZY! — Academic Resource Platform",
+  "description": "Your academic comeback starts here. A futuristic Gen-Z university question paper library and 3D academic resource discovery platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
